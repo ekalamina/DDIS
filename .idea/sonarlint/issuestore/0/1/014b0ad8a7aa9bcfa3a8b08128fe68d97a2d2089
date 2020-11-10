@@ -1,0 +1,16 @@
+
+r
+java:S1989"PHandle the following exception that could be thrown by "getWriter": IOException.(¦¶ÿ½ÿÿÿÿÿ8¡ÅÈÊÚ.
+~
+java:S1989"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(ó˜•Ô8ÄôÒÚ.
+p
+java:S1989"SHandle the following exception that could be thrown by "sendRedirect": IOException.(êãş²8‚ò–ÓÚ.
+X	java:S125!"<This block of commented-out lines of code should be removed.(âø8©‚ŞÒÚ.
+P
+java:S1481"3Remove this unused "servletContext" local variable.(£Ù Œ8¡ÅÈÊÚ.
+_
+java:S1854"BRemove this useless assignment to local variable "servletContext".(£Ù Œ8¡ÅÈÊÚ.
+z
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(ğœƒñùÿÿÿÿ8´À®ÒÚ.
+7
+java:S1220""Move this file to a named package.8¡ÅÈÊÚ.
