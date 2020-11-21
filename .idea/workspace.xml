@@ -7,8 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8d93dff-c385-4a15-974e-7f8c82f4d2a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/currencyService/currencyService.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/currencyService/src/main/java/ru/sbt/currencyService/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +270,7 @@
       <workItem from="1605366353189" duration="106000" />
       <workItem from="1605366488419" duration="95000" />
       <workItem from="1605366604254" duration="7953000" />
-      <workItem from="1605918433724" duration="4511000" />
+      <workItem from="1605918433724" duration="4791000" />
     </task>
     <servers />
   </component>
