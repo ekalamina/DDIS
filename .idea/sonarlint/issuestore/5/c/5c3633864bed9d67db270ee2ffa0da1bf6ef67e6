@@ -1,0 +1,8 @@
+
+U	java:S106&"9Replace this use of System.out or System.err by a logger.(δζ”8ευΤχά.
+a	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(‰Ζαe8Κάφά.
+W	java:S125)"<This block of commented-out lines of code should be removed.(•»η8―±Φχά.
+b	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Πϊÿπ8ϊμάφά.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ή
+o
+java:S2259"M"NullPointerException" will be thrown when invoking method "parseResponse()".(Μƒ‚οÿÿÿÿÿ8ΨΜΨχά.
