@@ -1,0 +1,259 @@
+{
+	"id": "1d23a0f4-e0bd-4043-a123-3528096f0f4f",
+	"name": "DDIS_testing",
+	"timestamp": "2020-11-23T02:00:55.526Z",
+	"collection_id": "1d164719-29c5-4457-8640-6fdb5a499aca",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 11,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "6585769a-8e54-444e-936b-d13be2f61304",
+			"name": "CorrectGetCurrency",
+			"url": "http://localhost:8080/currency/getCurrencysForLastNDays/2/",
+			"time": 43,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Correct body": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Correct body": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				43
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Correct body": true
+				}
+			]
+		},
+		{
+			"id": "1144be39-f0cf-43bc-af94-7df99599afbf",
+			"name": "IncorrectGetCurrency",
+			"url": "http://localhost:8080/currency/getCurrencysForLastNDays/-1/",
+			"time": 10,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 500": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 500": true
+				}
+			]
+		},
+		{
+			"id": "d5cd66da-6644-4fdd-8636-ecc1be34e8be",
+			"name": "CorrectGetPrediction",
+			"url": "http://localhost:8082/predict/getPredictionForTomorrow",
+			"time": 677,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Correct body": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Correct body": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				677
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Correct body": true
+				}
+			]
+		},
+		{
+			"id": "15d1ce98-0996-4935-8cf1-a560dd07f77f",
+			"name": "IncorrectGetPrediction",
+			"url": "http://localhost:8082/predict/getPredictionForTomorro",
+			"time": 5,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 404": true
+				}
+			]
+		},
+		{
+			"id": "2f9e2742-443e-42bd-8eec-d3e8d5a7347d",
+			"name": "CorrectGetWeather",
+			"url": "http://localhost:8081/weather/getWeathersForLastNDays/2/Paris",
+			"time": 422,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Correct body": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Correct body": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				422
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Correct body": true
+				}
+			]
+		},
+		{
+			"id": "4725fafe-db23-452f-bdfb-69611e33821b",
+			"name": "GetWeatherWithoutCity",
+			"url": "http://localhost:8081/weather/getWeathersForLastNDays/2/",
+			"time": 94,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Correct body": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Correct body": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				94
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Correct body": true
+				}
+			]
+		},
+		{
+			"id": "e136f6a1-3b67-4f49-a503-beddfe92d752",
+			"name": "IncorrectGetWeather",
+			"url": "http://localhost:8081/weather/getWeathersForLastNDays/9/Paris",
+			"time": 8,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 500": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 500": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1259,
+	"collection": {
+		"requests": [
+			{
+				"id": "6585769a-8e54-444e-936b-d13be2f61304",
+				"method": "GET"
+			},
+			{
+				"id": "1144be39-f0cf-43bc-af94-7df99599afbf",
+				"method": "GET"
+			},
+			{
+				"id": "d5cd66da-6644-4fdd-8636-ecc1be34e8be",
+				"method": "GET"
+			},
+			{
+				"id": "15d1ce98-0996-4935-8cf1-a560dd07f77f",
+				"method": "GET"
+			},
+			{
+				"id": "2f9e2742-443e-42bd-8eec-d3e8d5a7347d",
+				"method": "GET"
+			},
+			{
+				"id": "4725fafe-db23-452f-bdfb-69611e33821b",
+				"method": "GET"
+			},
+			{
+				"id": "e136f6a1-3b67-4f49-a503-beddfe92d752",
+				"method": "GET"
+			}
+		]
+	}
+}

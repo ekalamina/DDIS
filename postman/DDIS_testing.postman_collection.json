@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "1d164719-29c5-4457-8640-6fdb5a499aca",
+		"name": "DDIS_testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CurrencyService",
+			"item": [
+				{
+					"name": "CorrectGetCurrency",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c0d2a1d-09e9-437e-9491-c464daa50202",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Correct body\", function () {",
+									"    var responseBody = pm.response.json();",
+									"    _.each(responseBody, (item) => {",
+									"        pm.expect(item.value).to.eql(76.012)",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/currency/getCurrencysForLastNDays/2/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"currency",
+								"getCurrencysForLastNDays",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "IncorrectGetCurrency",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f0dbb925-d3a2-44ae-b183-11678dab0234",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "e2a0a36f-5f74-47a4-957a-a999bdbfb076",
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/currency/getCurrencysForLastNDays/-1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"currency",
+								"getCurrencysForLastNDays",
+								"-1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "PredictionService",
+			"item": [
+				{
+					"name": "CorrectGetPrediction",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0f3b31a5-957a-4a12-9d15-234572b9e607",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "aea11f22-a274-40e2-8ffd-eb938ba98325",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Correct body\", function () {",
+									"    var responseBody = pm.response.json()",
+									"    pm.expect(responseBody).to.above(40);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/predict/getPredictionForTomorrow",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"predict",
+								"getPredictionForTomorrow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "IncorrectGetPrediction",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "92163a2b-6ae3-4f45-aedf-079db53fdd51",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/predict/getPredictionForTomorro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"predict",
+								"getPredictionForTomorro"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "WeatherService",
+			"item": [
+				{
+					"name": "CorrectGetWeather",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5b9ff262-6573-4b41-9b9b-e16bb4d26ce6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Correct body\", function () {",
+									"    var responseBody = pm.response.json();",
+									"    _.each(responseBody, (item) => {",
+									"        pm.expect(item.location).to.include('Paris')",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/weather/getWeathersForLastNDays/2/Paris",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"weather",
+								"getWeathersForLastNDays",
+								"2",
+								"Paris"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetWeatherWithoutCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "516cb087-0690-436c-ac48-30d9c602000b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Correct body\", function () {",
+									"    var responseBody = pm.response.json();",
+									"    _.each(responseBody, (item) => {",
+									"        pm.expect(item.location).to.include('Moscow')",
+									"    })",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/weather/getWeathersForLastNDays/2/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"weather",
+								"getWeathersForLastNDays",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "IncorrectGetWeather",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b0d8e0b9-56a9-42ec-906d-4d4c913a6a2b",
+								"exec": [
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/weather/getWeathersForLastNDays/9/Paris",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"weather",
+								"getWeathersForLastNDays",
+								"9",
+								"Paris"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

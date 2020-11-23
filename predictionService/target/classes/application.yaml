@@ -1,0 +1,6 @@
+server:
+  port: 8082
+weather:
+  url: http://localhost:8081
+currency:
+  url: http://localhost:8080

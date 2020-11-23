@@ -2,6 +2,7 @@ package ru.sbt.currencyService;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import ru.sbt.currencyService.DAO.CurrencyDAO;
 import ru.sbt.currencyService.DTO.DollarListResponse;
 import ru.sbt.currencyService.DTO.DollarRequest;
 import ru.sbt.currencyService.DTO.DollarListRequest;
@@ -12,14 +13,18 @@ import java.util.Date;
 @Service
 public class CurrencyService {
 
+    private CurrencyDAO currencyDAO;
+
+    public CurrencyService(CurrencyDAO currencyDAO){
+        this.currencyDAO = currencyDAO;
+    }
+
     public DollarListResponse getCurrencysForLastNDays(int countDays) throws Exception {
         checkCountDays(countDays);
         DollarListRequest response = new RestTemplate().getForObject(getCbrUrl(countDays), DollarListRequest.class);
-        for (DollarRequest dollarRequest : response.getDollarRequests()){
-            System.out.println(dollarRequest.toString());
-        }
         DollarListResponse dollarListResponse = new DollarListResponse();
         dollarListResponse.setDollarResponse(response.getDollarRequests());
+        currencyDAO.saveDollars(dollarListResponse);
         return dollarListResponse;
     }
 
