@@ -1,8 +1,0 @@
-
-Z	java:S112#"FDefine and throw a dedicated exception instead of using a generic one.(‰Æáe
-[	java:S112!"FDefine and throw a dedicated exception instead of using a generic one.(Ðúÿð
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(šˆ˜¹
-a
-java:S2259"FA "NullPointerException" could be thrown; "response" is nullable here.(§ËÓ“øÿÿÿÿ
-[
-java:S1128"ERemove this unused import 'ru.sbt.currencyService.DTO.DollarRequest'.(êðËú

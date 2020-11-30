@@ -1,9 +1,0 @@
-/Users/a17661665/Git/DDIS/currencyService/src/main/java/ru/sbt/currencyService/DTO/DollarResponse.java
-/Users/a17661665/Git/DDIS/currencyService/src/main/java/ru/sbt/currencyService/DTO/DollarRequest.java
-/Users/a17661665/Git/DDIS/currencyService/src/main/java/ru/sbt/currencyService/CurrencyController.java
-/Users/a17661665/Git/DDIS/currencyService/src/main/java/ru/sbt/currencyService/DAO/CurrencyCrudRepository.java
-/Users/a17661665/Git/DDIS/currencyService/src/main/java/ru/sbt/currencyService/Application.java
-/Users/a17661665/Git/DDIS/currencyService/src/main/java/ru/sbt/currencyService/DAO/Entity/Dollar.java
-/Users/a17661665/Git/DDIS/currencyService/src/main/java/ru/sbt/currencyService/DTO/DollarListRequest.java
-/Users/a17661665/Git/DDIS/currencyService/src/main/java/ru/sbt/currencyService/CurrencyService.java
-/Users/a17661665/Git/DDIS/currencyService/src/main/java/ru/sbt/currencyService/DTO/DollarListResponse.java
