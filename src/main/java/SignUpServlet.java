@@ -20,7 +20,13 @@ public class SignUpServlet extends HttpServlet {
         ServletContext servletContext = getServletConfig().getServletContext();
 
         String user = req.getParameter("userName");
+        if (user == null){
+            throw new ServletException();
+        }
         String pass = req.getParameter("userPass");
+        if (pass == null){
+            throw new ServletException();
+        }
         req.setAttribute("userName", user);
         if (base.userExist(user)) {
             RequestDispatcher rd = req.getRequestDispatcher("failedRegistration.jsp");

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.rmi.ServerException;
 
 public class SignInServlet extends HttpServlet {
 
@@ -19,7 +20,13 @@ public class SignInServlet extends HttpServlet {
         ServletContext servletContext = getServletConfig().getServletContext();
 
         String user = req.getParameter("userName");
+        if (user == null){
+            throw new ServletException();
+        }
         String pass = req.getParameter("userPass");
+        if (pass == null){
+            throw new ServletException();
+        }
         req.setAttribute("userName", user);
         if (base.userExist(user)) {
             if (base.passCorrect(user, pass)) {
