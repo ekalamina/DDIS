@@ -3,45 +3,36 @@ package weatherService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import weatherService.DAO.WeatherDAO;
-import weatherService.DTO.WeatherListResponse;
+import weatherService.DAO.Entity.Weather;
+import weatherService.DAO.WeatherCrudRepository;
 import weatherService.DTO.WeatherResponse;
 import weatherService.DTO.weatherRequest.WeatherRequest;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 @Service
 public class WeatherService {
 
-    private WeatherDAO weatherDAO;
-    @Value("${weather.token}")
+    private WeatherCrudRepository weatherCrudRepository;
+
+    @Value("${weather.token:someToken}")
     private String token;
 
-    public WeatherService(WeatherDAO weatherDAO){
-        this.weatherDAO = weatherDAO;
-    }
+    private static final String WEATHER_HISTORY = "http://api.weatherapi.com/v1/history.json?key=";
 
-    public WeatherListResponse getWeathersForLastNDays(int countDays,String city) throws Exception {
-        checkCountDays(countDays);
-        WeatherListResponse weatherListResponse = new WeatherListResponse();
+    public ArrayList<WeatherResponse> getWeathersForLastNDays(int countDays, String city) throws Exception {
+        ArrayList<WeatherResponse> weatherListResponse = new ArrayList<>();
         getWeathers(countDays, city, weatherListResponse);
-        weatherDAO.saveWeather(weatherListResponse);
+        saveWeather(weatherListResponse);
         return weatherListResponse;
     }
 
-    //Можно выделить в отдельный класс ParametersChecker,
-    //но кроме даты тут нечего проверять, поэтому оставила тут.
-    private void checkCountDays(int countDays) throws Exception {
-        if (countDays < 0 || countDays > 7) {
-            throw new Exception();
-        }
-    }
-
-    private void getWeathers(int countDays, String city, WeatherListResponse weatherListResponse) {
+    private void getWeathers(int countDays, String city, ArrayList<WeatherResponse> weatherListResponse) {
         for (int i = 0; i < countDays; i++){
             WeatherRequest request = new RestTemplate().getForObject(getWeatherUrl(i,city), WeatherRequest.class);
-            weatherListResponse.getWeatherRespons().add(new WeatherResponse(request));
+            weatherListResponse.add(new WeatherResponse(request));
             System.out.println(request.toString());
         }
     }
@@ -51,7 +42,16 @@ public class WeatherService {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         Long callTime = System.currentTimeMillis();
         String date1 = simpleDateFormat.format(new Date(callTime - countDays * 1000 * 60 * 60 * 24));
-        return "http://api.weatherapi.com/v1/history.json?key=" + token + "&q=" + city + "&dt=" + date1;
+        return WEATHER_HISTORY + token + "&q=" + city + "&dt=" + date1;
     }
 
+    public void saveWeather(ArrayList<WeatherResponse> weatherListResponse) {
+        weatherListResponse.forEach(weatherResponse -> {
+            try {
+                weatherCrudRepository.save(new Weather(weatherResponse));
+            } catch (Exception e) {
+                System.out.println("Line already exist in database");
+            }
+        });
+    }
 }

@@ -1,18 +1,19 @@
 package weatherService.DTO.weatherRequest;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Day {
+    @JsonProperty("avgtemp_c")
+    Double avgTemp;
 
-    Double avgtemp_c;
-
-    public Double getAvgtemp_c() {
-        return avgtemp_c;
+    public Double getAvgTemp() {
+        return avgTemp;
     }
 
-    public void setAvgtemp_c(Double avgtemp_c) {
-        this.avgtemp_c = avgtemp_c;
+    public void setAvgTemp(Double avgTemp) {
+        this.avgTemp = avgTemp;
     }
 
 

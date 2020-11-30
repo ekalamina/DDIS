@@ -1,0 +1,12 @@
+/Users/a17661665/Git/DDIS/weatherService/src/main/java/weatherService/DAO/WeatherCrudRepository.java
+/Users/a17661665/Git/DDIS/weatherService/src/main/java/weatherService/DTO/weatherRequest/WeatherRequest.java
+/Users/a17661665/Git/DDIS/weatherService/src/main/java/weatherService/DTO/weatherRequest/Location.java
+/Users/a17661665/Git/DDIS/weatherService/src/main/java/weatherService/DTO/WeatherResponse.java
+/Users/a17661665/Git/DDIS/weatherService/src/main/java/weatherService/DTO/weatherRequest/Forecast.java
+/Users/a17661665/Git/DDIS/weatherService/src/main/java/weatherService/DAO/Entity/Weather.java
+/Users/a17661665/Git/DDIS/weatherService/src/main/java/weatherService/DTO/weatherRequest/Day.java
+/Users/a17661665/Git/DDIS/weatherService/src/main/java/weatherService/WeatherService.java
+/Users/a17661665/Git/DDIS/weatherService/src/main/java/weatherService/DAO/WeatherDAO.java
+/Users/a17661665/Git/DDIS/weatherService/src/main/java/weatherService/WeatherController.java
+/Users/a17661665/Git/DDIS/weatherService/src/main/java/weatherService/DTO/weatherRequest/ForecastDay.java
+/Users/a17661665/Git/DDIS/weatherService/src/main/java/weatherService/Application.java

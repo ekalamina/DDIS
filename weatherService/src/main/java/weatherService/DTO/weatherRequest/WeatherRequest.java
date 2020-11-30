@@ -35,7 +35,7 @@ public class WeatherRequest {
         return this.forecast.getForecastDay()[0].getDate();
     }
     public Double getTemp(){
-        return this.forecast.getForecastDay()[0].getDay().getAvgtemp_c();
+        return this.forecast.getForecastDay()[0].getDay().getAvgTemp();
     }
     public String getCity(){
         return this.location.getName();

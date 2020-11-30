@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import weatherService.DTO.WeatherResponse;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.util.List;
 
 @RestController
@@ -19,13 +21,13 @@ public class WeatherController {
         this.weatherService = weatherService;
     }
 
-    @GetMapping(value = "/getWeathersForLastNDays/{countDays}/{city}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<WeatherResponse> getWeathersForLastNDays(@PathVariable int countDays,@PathVariable String city) throws Exception {
-        return weatherService.getWeathersForLastNDays(countDays,city).getWeatherRespons();
+    @GetMapping(value = {"/getWeathersForLastNDays/{countDays}/{city}","/getWeathersForLastNDays/{countDays}" } , produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<WeatherResponse> getWeathersForLastNDays(@PathVariable @Min(0) @Max(7) int countDays,
+                                                         @PathVariable(required = false) String city) throws Exception {
+        if (city == null) {
+            return weatherService.getWeathersForLastNDays(countDays, "Moscow");
+        } else {
+            return weatherService.getWeathersForLastNDays(countDays, city);
+        }
     }
-    @GetMapping(value = "/getWeathersForLastNDays/{countDays}/", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<WeatherResponse> getWeathersForLastNDays(@PathVariable int countDays) throws Exception {
-        return weatherService.getWeathersForLastNDays(countDays,"Moscow").getWeatherRespons();
-    }
-
 }

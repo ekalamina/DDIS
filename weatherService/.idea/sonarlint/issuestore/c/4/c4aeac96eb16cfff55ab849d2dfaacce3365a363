@@ -1,0 +1,9 @@
+
+Z	java:S112'"FDefine and throw a dedicated exception instead of using a generic one.(‰Æáe
+S	java:S106/"9Replace this use of System.out or System.err by a logger.(¤—Àùÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(†à¾©ùÿÿÿÿ
+’
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(òº ëüÿÿÿÿ8¯·í¯á.
+`
+java:S2259/"EA "NullPointerException" could be thrown; "request" is nullable here.(¤—Àùÿÿÿÿ
+[	java:S112%"FDefine and throw a dedicated exception instead of using a generic one.(Ğúÿğ

@@ -6,4 +6,5 @@ import weatherService.DAO.Entity.Weather;
 
 @Repository
 public interface WeatherCrudRepository extends CrudRepository<Weather, Long> {
+
 }
