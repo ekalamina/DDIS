@@ -20,7 +20,7 @@ public class WeatherService {
     @Value("${weather.token:someToken}")
     private String token;
 
-    private static final String WEATHER_HISTORY = "http://api.weatherapi.com/v1/history.json?key=";
+    private static final String WEATHER_HISTORY = "http://api.weatherapi.com/v1/history.json?key=%s&q=%s&dt=$s";
 
     public ArrayList<WeatherResponse> getWeathersForLastNDays(int countDays, String city) throws Exception {
         ArrayList<WeatherResponse> weatherListResponse = new ArrayList<>();
@@ -30,8 +30,8 @@ public class WeatherService {
     }
 
     private void getWeathers(int countDays, String city, ArrayList<WeatherResponse> weatherListResponse) {
-        for (int i = 0; i < countDays; i++){
-            WeatherRequest request = new RestTemplate().getForObject(getWeatherUrl(i,city), WeatherRequest.class);
+        for (int i = 0; i < countDays; i++) {
+            WeatherRequest request = new RestTemplate().getForObject(getWeatherUrl(i, city), WeatherRequest.class);
             weatherListResponse.add(new WeatherResponse(request));
             System.out.println(request.toString());
         }
@@ -42,7 +42,7 @@ public class WeatherService {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         Long callTime = System.currentTimeMillis();
         String date1 = simpleDateFormat.format(new Date(callTime - countDays * 1000 * 60 * 60 * 24));
-        return WEATHER_HISTORY + token + "&q=" + city + "&dt=" + date1;
+        return String.format(WEATHER_HISTORY, token, city, date1)
     }
 
     public void saveWeather(ArrayList<WeatherResponse> weatherListResponse) {
