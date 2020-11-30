@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.sbt.currencyService.DTO.DollarResponse;
 
+import javax.validation.constraints.Min;
 import java.util.List;
 
 @RestController
@@ -19,8 +20,9 @@ public class CurrencyController {
         this.currencyService = currencyService;
     }
 
-    @GetMapping(value = "/getCurrencysForLastNDays/{countDays}/", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<DollarResponse> getCurrencysForLastNDays(@PathVariable int countDays) throws Exception {
+    @GetMapping(value = "/getCurrencysForLastNDays/{countDays}/",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<DollarResponse> getCurrencysForLastNDays(@PathVariable @Min(0) int countDays) throws Exception {
         return currencyService.getCurrencysForLastNDays(countDays).getDollarResponses();
     }
 

@@ -1,7 +1,6 @@
 package ru.sbt.currencyService.DAO.Entity;
 
 import ru.sbt.currencyService.DTO.DollarResponse;
-import sun.awt.SunHints;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -9,6 +8,9 @@ import java.util.Date;
 @Entity
 @Table(name = "Dollar",uniqueConstraints= @UniqueConstraint(columnNames={"date", "value"}))
 public class Dollar {
+    Dollar(){
+
+    }
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long dollarId;
