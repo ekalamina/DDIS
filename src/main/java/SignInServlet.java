@@ -21,11 +21,13 @@ public class SignInServlet extends HttpServlet {
 
         String user = req.getParameter("userName");
         if (user == null){
-            throw new ServletException();
+            RequestDispatcher rd = req.getRequestDispatcher("NullSignIn.jsp");
+            rd.forward(req, resp);
         }
         String pass = req.getParameter("userPass");
         if (pass == null){
-            throw new ServletException();
+            RequestDispatcher rd = req.getRequestDispatcher("NullSignIn.jsp");
+            rd.forward(req, resp);
         }
         req.setAttribute("userName", user);
         if (base.userExist(user)) {
