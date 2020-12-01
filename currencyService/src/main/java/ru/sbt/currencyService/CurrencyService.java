@@ -1,29 +1,41 @@
 package ru.sbt.currencyService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import ru.sbt.currencyService.DAO.CurrencyCrudRepository;
 import ru.sbt.currencyService.DAO.Entity.Dollar;
-import ru.sbt.currencyService.DTO.DollarListRequest;
-import ru.sbt.currencyService.DTO.DollarListResponse;
+import ru.sbt.currencyService.DTO.DollarRequest;
+import ru.sbt.currencyService.DTO.DollarResponse;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 @Service
 public class CurrencyService {
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     private CurrencyCrudRepository currencyCrudRepository;
 
     private static final String CURRENCY_URL = "http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=%s&date_req2=%s&VAL_NM_RQ=R01235";
 
-    public DollarListResponse getCurrencysForLastNDays(int countDays) throws Exception {
-        DollarListRequest response = new RestTemplate().getForObject(getCbrUrl(countDays), DollarListRequest.class);
-        DollarListResponse dollarListResponse = new DollarListResponse();
-        dollarListResponse.setDollarResponse(response.getDollarRequests());
-        saveDollars(dollarListResponse);
-        return dollarListResponse;
+    public ArrayList<DollarResponse> getCurrencysForLastNDays(int countDays) throws Exception {
+        ArrayList<DollarRequest> requestList = restTemplate.getForObject(getCbrUrl(countDays), ArrayList.class);
+        ArrayList<DollarResponse> responseList = new ArrayList<>();
+        requestList.forEach(dollarRequest -> {
+            DollarResponse dollarResponse = new DollarResponse();
+            dollarResponse.setValue(dollarRequest.getValue());
+            dollarResponse.setDate(dollarRequest.getDate());
+            responseList.add(dollarResponse);
+        });
+        saveDollars(responseList);
+        return responseList;
     }
+
 
     private String getCbrUrl(int countDays) {
         String pattern = "dd/MM/yyyy";
@@ -34,8 +46,8 @@ public class CurrencyService {
         return String.format(CURRENCY_URL,date1,date2);
     }
 
-    private void saveDollars(DollarListResponse dollarListResponse) {
-        dollarListResponse.getDollarResponses().forEach(dollarResponse -> {
+    private void saveDollars(Collection<DollarResponse> dollarListResponse) {
+        dollarListResponse.forEach(dollarResponse -> {
             try {
                 currencyCrudRepository.save(new Dollar(dollarResponse));
             } catch (Exception e){

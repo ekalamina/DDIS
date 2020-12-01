@@ -23,7 +23,7 @@ public class CurrencyController {
     @GetMapping(value = "/getCurrencysForLastNDays/{countDays}/",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public List<DollarResponse> getCurrencysForLastNDays(@PathVariable @Min(0) int countDays) throws Exception {
-        return currencyService.getCurrencysForLastNDays(countDays).getDollarResponses();
+        return currencyService.getCurrencysForLastNDays(countDays);
     }
 
 }
