@@ -1,11 +1,13 @@
 package predictionService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import predictionService.DTO.DollarListRequest;
-import predictionService.DTO.WeatherListRequest;
+import predictionService.DTO.DollarRequest;
 import predictionService.DTO.WeatherRequest;
+
+import java.util.ArrayList;
 
 @Service
 public class PredictionService {
@@ -16,22 +18,27 @@ public class PredictionService {
     @Value("${currency.url}")
     private String currencyUrl;
 
-    public Double getPrediction() throws Exception {
+    @Autowired
+    private RestTemplate restTemplate;
+
+    public Double getPrediction() {
         Double weatherSumm = 0.;
-        for (WeatherRequest weatherRequest: getWeather()){
-            weatherSumm+=weatherRequest.getTemperature();
+        for (WeatherRequest weatherRequest : getWeather()) {
+            weatherSumm += weatherRequest.getTemperature();
         }
         weatherSumm /= getWeather().get(0).getTemperature();
-        return getDollars().get(getDollars().size()-1).getValue() + weatherSumm;
+        return getDollars().get(getDollars().size() - 1).getValue() + weatherSumm;
     }
-    private DollarListRequest getDollars(){
+
+    private ArrayList<DollarRequest> getDollars() {
         String dollarListUrl = currencyUrl + "/currency/getCurrencysForLastNDays/7/";
-        DollarListRequest request = new RestTemplate().getForObject(dollarListUrl, DollarListRequest.class);
-       return request;
+        ArrayList<DollarRequest> request = restTemplate.getForObject(dollarListUrl, ArrayList.class);
+        return request;
     }
-    private WeatherListRequest getWeather(){
+
+    private ArrayList<WeatherRequest> getWeather() {
         String weatherListUrl = weatherUrl + "/weather/getWeathersForLastNDays/7/";
-        WeatherListRequest request = new RestTemplate().getForObject(weatherListUrl, WeatherListRequest.class);
+        ArrayList<WeatherRequest> request = restTemplate.getForObject(weatherListUrl, ArrayList.class);
         return request;
     }
 
