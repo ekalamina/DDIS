@@ -1,7 +1,6 @@
 package weatherService.DTO.weatherRequest;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import weatherService.DTO.weatherRequest.Day;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ForecastDay {

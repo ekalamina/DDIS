@@ -13,9 +13,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
+import java.util.logging.Logger;
 
 @Service
 public class WeatherService {
+
+    private static Logger logger;
 
     private WeatherCrudRepository weatherCrudRepository;
 
@@ -27,7 +31,7 @@ public class WeatherService {
 
     private static final String WEATHER_HISTORY = "http://api.weatherapi.com/v1/history.json?key=%s&q=%s&dt=%s";
 
-    public ArrayList<WeatherResponse> getWeathersForLastNDays(int countDays, String city) throws Exception {
+    public List<WeatherResponse> getWeathersForLastNDays(int countDays, String city) {
         ArrayList<WeatherResponse> weatherListResponse = new ArrayList<>();
         getWeathers(countDays, city, weatherListResponse);
         saveWeather(weatherListResponse);
@@ -54,7 +58,7 @@ public class WeatherService {
             try {
                 weatherCrudRepository.save(new Weather(weatherResponse));
             } catch (Exception e) {
-                System.out.println("Line already exist in database");
+                logger.info("Line already exist in database");
             }
         });
     }

@@ -3,7 +3,6 @@ package weatherService.DAO.Entity;
 import weatherService.DTO.WeatherResponse;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "Weather", uniqueConstraints = @UniqueConstraint(columnNames = {"date", "location"}))

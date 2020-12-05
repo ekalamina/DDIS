@@ -1,8 +1,6 @@
 package weatherService.DTO.weatherRequest;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import weatherService.DTO.weatherRequest.Forecast;
-import weatherService.DTO.weatherRequest.Location;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -12,8 +10,8 @@ public class WeatherRequest {
 
     Forecast forecast;
 
-
     public WeatherRequest() {
+        //pass
     }
 
     public Location getLocation() {

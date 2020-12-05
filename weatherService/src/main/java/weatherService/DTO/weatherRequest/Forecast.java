@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Forecast {
-    public ForecastDay[] forecastday;
+    private ForecastDay[] forecastday;
 
     public ForecastDay[] getForecastDay() {
-        return forecastday;
+        return this.forecastday;
     }
 
     public void setForecastDay(ForecastDay[] forecastday) {

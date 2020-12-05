@@ -1,15 +1,12 @@
 package weatherService.DTO;
 
-import weatherService.DAO.Entity.Weather;
 import weatherService.DTO.weatherRequest.WeatherRequest;
-
-import java.util.Date;
 
 public class WeatherResponse {
 
     private String date;
     private String location;
-    public Double temperature;
+    private Double temperature;
 
     public WeatherResponse(WeatherRequest weatherRequest){
         this.date = weatherRequest.getDate();
