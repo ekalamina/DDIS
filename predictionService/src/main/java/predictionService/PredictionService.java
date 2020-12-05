@@ -32,14 +32,12 @@ public class PredictionService {
 
     private ArrayList<DollarRequest> getDollars() {
         String dollarListUrl = currencyUrl + "/currency/getCurrencysForLastNDays/7/";
-        ArrayList<DollarRequest> request = restTemplate.getForObject(dollarListUrl, ArrayList.class);
-        return request;
+        return restTemplate.getForObject(dollarListUrl, ArrayList.class);
     }
 
     private ArrayList<WeatherRequest> getWeather() {
         String weatherListUrl = weatherUrl + "/weather/getWeathersForLastNDays/7/";
-        ArrayList<WeatherRequest> request = restTemplate.getForObject(weatherListUrl, ArrayList.class);
-        return request;
+        return restTemplate.getForObject(weatherListUrl, ArrayList.class);
     }
 
 }

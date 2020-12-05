@@ -7,7 +7,7 @@ public class WeatherRequest {
 
     private String date;
     private String location;
-    public Double temperature;
+    private Double temperature;
 
     public String getDate() {
         return date;
