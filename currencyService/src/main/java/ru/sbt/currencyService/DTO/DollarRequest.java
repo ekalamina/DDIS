@@ -20,6 +20,7 @@ public class DollarRequest {
     String value;
 
     public DollarRequest() {
+        //pass
     }
 
     @XmlElement(name = "Nominal")
