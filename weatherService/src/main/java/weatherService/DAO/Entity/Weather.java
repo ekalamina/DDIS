@@ -7,6 +7,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Weather", uniqueConstraints = @UniqueConstraint(columnNames = {"date", "location"}))
 public class Weather {
+    Weather(){
+
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long weatherId;
