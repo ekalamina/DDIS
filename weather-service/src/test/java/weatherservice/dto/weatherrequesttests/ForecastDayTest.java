@@ -1,4 +1,4 @@
-package weatherservice.dto.weatherrequest;
+package weatherservice.dto.weatherrequesttests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
