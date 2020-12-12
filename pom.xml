@@ -14,9 +14,9 @@
         <relativePath/>
     </parent>
     <modules>
-        <module>currencyService</module>
-        <module>weatherService</module>
-        <module>predictionService</module>
+        <module>currency-service</module>
+        <module>weather-service</module>
+        <module>prediction-service</module>
     </modules>
     <properties>
         <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
