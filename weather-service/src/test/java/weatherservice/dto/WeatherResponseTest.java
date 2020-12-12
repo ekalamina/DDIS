@@ -3,11 +3,7 @@ package weatherservice.dto;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
-import weatherservice.dto.weatherRequest.Day;
-import weatherservice.dto.weatherRequest.Forecast;
-import weatherservice.dto.weatherRequest.ForecastDay;
-import weatherservice.dto.weatherRequest.Location;
-import weatherservice.dto.weatherRequest.WeatherRequest;
+import weatherservice.dto.weatherrequest.*;
 
 public class WeatherResponseTest {
     @Test
