@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.sberbank</groupId>
-    <artifactId>currencyService</artifactId>
+    <artifactId>currency-service</artifactId>
     <version>1.0.0</version>
     <parent>
         <groupId>ru.sberbank</groupId>
