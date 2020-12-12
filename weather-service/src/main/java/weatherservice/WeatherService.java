@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 import weatherservice.dao.entity.Weather;
 import weatherservice.dao.WeatherCrudRepository;
 import weatherservice.dto.WeatherResponse;
-import weatherservice.dto.weatherRequest.WeatherRequest;
+import weatherservice.dto.weatherrequest.WeatherRequest;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

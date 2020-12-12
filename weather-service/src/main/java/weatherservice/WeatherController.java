@@ -23,7 +23,7 @@ public class WeatherController {
 
     @GetMapping(value = {"/getWeathersForLastNDays/{countDays}/{city}","/getWeathersForLastNDays/{countDays}" } , produces = MediaType.APPLICATION_JSON_VALUE)
     public List<WeatherResponse> getWeathersForLastNDays(@PathVariable @Min(0) @Max(7) int countDays,
-                                                         @PathVariable(required = false) String city) throws Exception {
+                                                         @PathVariable(required = false) String city) {
         if (city == null) {
             return weatherService.getWeathersForLastNDays(countDays, "Moscow");
         } else {

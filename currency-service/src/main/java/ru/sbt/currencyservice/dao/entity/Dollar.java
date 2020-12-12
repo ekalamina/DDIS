@@ -17,8 +17,8 @@ public class Dollar {
     private Date date;
     private Double value;
     public Dollar(DollarResponse dollarResponse){
-        this.date = dollarResponse.getDate();
-        this.value = dollarResponse.getValue();
+        setDate(dollarResponse.getDate());
+        setValue(dollarResponse.getValue());
     }
 
     public Date getDate() {

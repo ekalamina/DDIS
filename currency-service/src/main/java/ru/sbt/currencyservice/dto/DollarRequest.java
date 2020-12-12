@@ -1,5 +1,7 @@
 package ru.sbt.currencyservice.dto;
 
+import org.slf4j.Logger;
+
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -10,6 +12,8 @@ import java.util.Date;
 
 @XmlRootElement(name = "Record")
 public class DollarRequest {
+
+    private Logger logger;
 
     @XmlAttribute(name = "Date")
     String date;
@@ -41,7 +45,7 @@ public class DollarRequest {
         try {
             return new SimpleDateFormat("dd.MM.yyyy").parse(this.date);
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return null;
     }

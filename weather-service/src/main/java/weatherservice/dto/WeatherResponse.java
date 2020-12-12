@@ -1,6 +1,6 @@
 package weatherservice.dto;
 
-import weatherservice.dto.weatherRequest.WeatherRequest;
+import weatherservice.dto.weatherrequest.WeatherRequest;
 
 public class WeatherResponse {
 
@@ -9,9 +9,9 @@ public class WeatherResponse {
     private Double temperature;
 
     public WeatherResponse(WeatherRequest weatherRequest){
-        this.date = weatherRequest.getDate();
-        this.location = weatherRequest.getCity();
-        this.temperature = weatherRequest.getTemp();
+        setDate(weatherRequest.getDate());
+        setLocation(weatherRequest.getCity());
+        setTemperature(weatherRequest.getTemp());
     }
 
     public String getDate() {

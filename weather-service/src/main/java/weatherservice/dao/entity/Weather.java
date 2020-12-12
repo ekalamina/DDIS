@@ -18,9 +18,9 @@ public class Weather {
     private Double temperature;
 
     public Weather(WeatherResponse weatherResponse) {
-        this.date = weatherResponse.getDate();
-        this.location = weatherResponse.getLocation();
-        this.temperature = weatherResponse.getTemperature();
+        setDate(weatherResponse.getDate());
+        setLocation(weatherResponse.getLocation());
+        setTemperature(weatherResponse.getTemperature());
     }
 
     public String getDate() {
