@@ -1,8 +1,0 @@
-ru/sbt/currencyservice/dto/DollarRequest.class
-ru/sbt/currencyservice/CurrencyConfiguration.class
-ru/sbt/currencyservice/dao/CurrencyCrudRepository.class
-ru/sbt/currencyservice/dao/entity/Dollar.class
-ru/sbt/currencyservice/CurrencyController.class
-ru/sbt/currencyservice/Application.class
-ru/sbt/currencyservice/CurrencyService.class
-ru/sbt/currencyservice/dto/DollarResponse.class

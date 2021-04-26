@@ -1,9 +1,0 @@
-weatherservice/dto/WeatherResponseTest.class
-weatherservice/dto/weatherrequest/LocationTest.class
-weatherservice/dto/weatherrequest/DayTest.class
-weatherservice/WeatherControllerTest.class
-weatherservice/WeatherServiceTest.class
-weatherservice/dto/weatherrequest/ForecastDayTest.class
-weatherservice/dto/weatherrequest/WeatherRequestTest.class
-weatherservice/ApplicationTest.class
-weatherservice/dto/weatherrequest/ForecastTest.class
