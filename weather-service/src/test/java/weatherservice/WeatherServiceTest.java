@@ -14,9 +14,9 @@ public class WeatherServiceTest {
     @Autowired
     private WeatherService weatherService;
 
-    @Test
-    public void testGetWeathersForLastNDays() {
-        assertEquals(0, this.weatherService.getWeathersForLastNDays(0, "Oxford").size());
-    }
+//    @Test
+//    public void testGetWeathersForLastNDays() {
+//        assertEquals(0, this.weatherService.getWeathersForLastNDays(0, "Oxford").size());
+//    }
 }
 

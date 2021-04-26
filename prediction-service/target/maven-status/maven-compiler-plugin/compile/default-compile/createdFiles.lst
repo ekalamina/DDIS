@@ -1,0 +1,6 @@
+predictionservice/PredictionConfiguration.class
+predictionservice/PredictionService.class
+predictionservice/dto/WeatherRequest.class
+predictionservice/Application.class
+predictionservice/dto/DollarRequest.class
+predictionservice/PredictionController.class

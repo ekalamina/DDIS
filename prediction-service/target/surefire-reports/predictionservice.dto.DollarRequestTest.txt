@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: predictionservice.dto.DollarRequestTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in predictionservice.dto.DollarRequestTest
