@@ -1,0 +1,13 @@
+---
+all:
+  children:
+    services:
+      hosts: "194.87.93.27"
+      vars:
+        ansible_password: "cHONtic"
+        ansible_user: "mftiedu"
+    databases:
+      hosts: "194.87.111.112"
+      vars:
+        ansible_password: "aNSHaPi1234"
+        ansible_user: "edumfti"

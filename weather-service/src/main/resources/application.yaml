@@ -1,16 +1,28 @@
 server:
   port: 8081
 spring:
+  flyway:
+    enabled: true
+    schemas: Weather
+    user: postgres
+    password: postgres
+    locations: classpath:db.migration
   datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: admin
-    password: admin
-  h2:
-    console:
-      enabled: true
+    url: jdbc:postgresql://localhost:5432/database
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: Weather
+        jdbc:
+          lob:
+            non_contextual_creation: true
 weather:
   token: e5954aa2cd4b44a8a10181807202211
 eureka:
@@ -19,4 +31,4 @@ eureka:
   client:
     fetch-registry: true
     service-url:
-      defaultZone: http://eureka:8761/eureka
+      defaultZone: http://localhost:8761/eureka
