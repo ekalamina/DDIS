@@ -1,0 +1,24 @@
+---
+-
+  hosts: services
+  remote_user: mftiedu
+  tasks:
+    -
+      shell: "docker run -p 8281:8081 ekalamina/weather:0.1.0"
+      name: "Run weather service"
+    -
+      shell: "docker run -p 8282:8082 ekalamina/prediction:0.1.0"
+      name: "Run prediction service"
+    -
+      shell: "docker run -p 8280:8080 ekalamina/currency:0.1.0"
+      name: "Run currency service"
+    -
+      shell: "docker run -p 8283:8761 ekalamina/eureka:0.1.0"
+      name: "Run eureka service"
+-
+  hosts: databases
+  remote_user: edumfti
+  tasks:
+    -
+      shell: "docker run -p 6543:5432 postgres:latest"
+      name: "Run database service"
